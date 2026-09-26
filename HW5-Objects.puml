@@ -1,0 +1,100 @@
+@startuml Part3
+
+object "<u>pequod:Ship</u>" as ps {
+    shipName = "Pequod"
+    shipYear = "1840"
+}
+
+object "<u>titanic:CruiseShip</u>" as ts {
+    shipName = "Titanic"
+    shipYear = "1912"
+    maxPassengers = 3547
+}
+
+object "<u>cargo:CargoShip</u>" as cs {
+    shipName = "Generic Cargo Ship"
+    shipYear = "2001"
+    cargoTonnage = 25
+}
+
+@enduml
+
+@startuml Part4 
+
+object "<u>cs3560:Course</u>" as c {
+    courseName = "CS 3560"
+}
+
+object "<u>nima:Instructor</u>" as i {
+    firstName = "Nima"
+    lastName = "Davarpanah"
+    officeNumber = "3-2636"
+}
+
+object "<u>cleanCode:Textbook</u>" as t {
+    title = "Clean Code"
+    author = "Robert C. Martin"
+    publisher = "Addison-Wesley Professional"
+}
+
+c o-- i
+c o-- t
+
+@enduml
+
+@startuml
+
+object "<u>phpDemo1:Folder</u>" as root {
+    folderName = "php_demo1"
+}
+
+object "<u>sourceFiles:Folder</u>" as sources {
+    folderName = "Source Files"
+}
+
+object "<u>includePath:Folder</u>" as include {
+    folderName = "Include Path"
+}
+
+object "<u>remoteFiles:Folder</u>" as remote {
+    folderName = "Remote Files"
+}
+
+object "<u>phalcon:Folder</u>" as phalcon {
+    folderName = ".phalcon"
+}
+
+object "<u>cache:Folder</u>" as cache {
+    folderName = "cache"
+}
+
+object "<u>publicFolder:Folder</u>" as public {
+    folderName = "public"
+}
+
+object "<u>htAccess:File</u>" as f1 {
+    fileName = ".htaccess"
+}
+
+object "<u>htRouter:File</u>" as f2 {
+    fileName = ".htrouter.php"
+}
+
+object "<u>indexHtml:File</u>" as f3 {
+    fileName = "index.html"
+}
+
+root *-- sources
+root *-- include
+root *-- remote
+
+sources *-- phalcon
+sources *-- cache
+sources *-- public
+
+public *-- f1
+public *-- f2
+public *-- f3
+
+@enduml
+
