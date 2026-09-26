@@ -50,6 +50,110 @@ class BaseEmployee {
 Employee <|-- SalariedEmployee
 Employee <|-- HourlyEmployee
 Employee <|-- CommissionEmployee
-CommissionEmployee <|-- BaseEmployee
+Employee <|-- BaseEmployee
 
 @enduml
+
+@startuml Ship
+
+class Ship {
+    - shipName : String
+    - shipYear : String
+    + getShipName() : String
+    + getShipYear() : String
+    + setShipName(shipName : String) : void
+    + setShipYear(shipYear : String) : void
+    + toString() : String
+}
+
+class CargoShip {
+    - cargoTonnage : int
+    + getCargoTonnage() : int
+    + setCargoTonnage(cargoTonnage : int) : void
+    + toString() : String
+}
+
+class CruiseShip {
+    - maxPassengers : int
+    + getMaxPassengers() : int
+    + setMaxPassengers(maxPassengers : int) : void
+    + toString() : String
+}
+
+Ship <|-- CargoShip
+Ship <|-- CruiseShip
+
+@enduml
+
+@startuml Course
+
+class Course {
+    - courseName : String
+    - instructor : Instructor
+    - textbook : Textbook
+    + getCourseName() : String
+    + setCourseName(courseName : String) : void
+    + getInstructor() : Instructor
+    + setInstructor(instructor : Instructor) : void
+    + getTextbook() : Textbook
+    + setTextbook(textbook : Textbook) : void
+    + toString() : String
+}
+
+class Instructor {
+    - firstName : String
+    - lastName : String
+    - officeNumber : String
+    + getFirstName() : String
+    + getLastName() : String
+    + getOfficeNumber() : String
+    + setFirstName(firstName : String) : void
+    + setLastName(lastName : String) : void
+    + setOfficeNumber(officeNumber : String) : void
+    + toString() : String
+}
+
+class Textbook {
+    - title : String
+    - author : String
+    - publisher : String
+    + getTitle() : String
+    + getAuthor() : String
+    + getPublisher() : String
+    + setTitle(title : String) : void
+    + setAuthor(author : String) : void
+    + setPublisher(publisher : String) : void
+    + toString() : String
+}
+
+Course o-- Instructor
+Course o-- Textbook
+
+@enduml
+
+@startuml FolderAndFile
+
+class Folder {
+    - folderName : String
+    - files : ArrayList<File>
+    - subfolders : ArrayList<Folder>
+    + getFolderName() : String
+    + setFolderName(folderName : String) : void
+    + addFile(file : File) : void
+    + addFolder(folder : Folder) : void
+    + removeFolder(folderName : String) : void
+    + print() : void
+}
+
+class File {
+    - fileName : String
+    + getFileName() : String
+    + setFileName(fileName : String) : void
+    + toString() : String
+}
+
+Folder "1" *-- "*" File : files
+Folder "1" *-- "*" Folder : subfolders
+
+@enduml
+
